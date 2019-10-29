@@ -73,6 +73,28 @@
     #4 \\
 }
 
+% external link symbol
+\usepackage{tikz}
+\newcommand{\ExternalLink}{%
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
 
 % END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
 
@@ -95,7 +117,7 @@
 \header{Experience}
 \vspace{1mm}
 \textbf{\textbf{Harman} \hfill} Novi, Michigan\\
-{Software Engineering Intern: Connected Car \& Android \hfill May 2019 - Aug 2019\\
+{Software Engineering Intern: Android \hfill May 2019 - Aug 2019\\
 \vspace{-2mm}
 	\item[]
 	\fbox{\begin{minipage}[t][1\height][c]{0.07\textwidth} \centering Python\end{minipage}}
@@ -105,9 +127,10 @@
 	\\
 \vspace{-1mm}
 \begin{itemize} \itemsep 1pt
-    \item Designed API paths throughout Android OS  to verify C/C++ libraries from self-written Java app in the \textit{Android automotive distro} \textbf{build system}
-    \item Designed python modules that operate a PC's linux shell, GUI, and 3 serially-linked slaves (Android device, programmable supply, and uC) for \textbf{test automation}
-    		  \item Programmed \& soldered a STM32 microcontroller to product's chip, which revealed bootup failure (freq. of $\frac{1}{1,000+}$ cycles) for \textbf{critical ticket} involving China team and supplier
+    \item Added APIs in Android OS  to enable verification of C++ audio libraries from the device \textbf{UI}
+    \item Developed a Java .APK app in the \textit{Android distro's} \textbf{build system} to demo C++ audio libraries
+    \item Designed python modules to operate a PC's linux shell, GUI, and 3 slaves (Android product, power supply, and uC) to run 4,000+ \textbf{automated tests}
+    		  \item Programmed a STM32 uC to override product's board, which revealed bootup failure (freq. of $\frac{1}{1,000+}$ cycles) for \textbf{critical ticket} with China team and supplier
 \end{itemize}
 
 %==== Extracurriculars ====%
@@ -123,11 +146,11 @@
 \vspace{-1mm}
 \begin{itemize} \itemsep 1pt
 	\item Presented in US DOE's \textit{autonomous hybrid E car challenge} (EcoCAR) on SUV's initial sensor/algorithm/computer \textbf{architecture}  
-    \item Wrote \textit{fusion \textbf{algorithm}} in MATLAB for car’s sensors to track objects; and optimized [\textit{noise}, \textit{cluster-size}] in self-written simulation
+    \item Wrote \textit{fusion \textbf{algorithm}} in MATLAB for car’s sensors to track objects; and \textbf{optimized} [\textit{noise}, \textit{cluster-size}] in self-made simulation program
     \item R\&D of \textit{adaptive cruise control} (ACC) algorithm to \textbf{control} speed, acceleration, and braking
 \end{itemize}
 
-\textbf{Robotic Whiteboard} \hfill Jan 2019\\\\
+\textbf{Robotic Whiteboard} \href{https://devpost.com/software/project-sdc6n523t48u}{\ExternalLink} \hfill Jan 2019\\\\
 \vspace{-2mm}
 	\item[]
 	\fbox{\begin{minipage}[t][1\height][c]{0.07\textwidth} \centering Python\end{minipage}}
@@ -137,7 +160,7 @@
 \vspace{-1mm}
 \begin{itemize} \itemsep 0.5pt
 	\item Implemented a \textit{picture-drawing \textbf{graph} algorithm} for robotic-whiteboard that computes coordinates to draw user-uploaded images
-    \item Created a deterministic Python script to \textbf{demo} project’s functionality to an audience
+    \item Created a deterministic Python script to \textbf{demo} project’s functionality to 700 hackers
 \end{itemize}
 \vspace*{2mm}
 
@@ -153,8 +176,8 @@
 	\\
 \vspace{-1mm}
 \begin{itemize} \itemsep 0.5pt
-	\item Fine-tuned ResNet32 \textbf{model} with self-made dataset on Google \textbf{Cloud} GPU
-	\item Added Python turtle API to HTML \textbf{source} of \url{https://benli.design} to draw \textbf{sprites}
+	\item Trained \textbf{neural networks} with cloud} GPU/CPUs and PyTorch/fastAI
+	\item Added Python turtle API to HTML \textbf{source} of \url{benli.design} to draw \textbf{sprites}
 	\item Built cloud-hosted Azure \textbf{IOT Hub} to connect remote sensors
 \end{itemize}
 \vspace*{2mm}
@@ -185,7 +208,7 @@ B.Eng. Computer Engineering \hfill Sep 2017 - May 2021\\
 \begin{itemize} \itemsep 0.5pt
     \item Managing \textbf{supply chain} for ECE Department's course-kits
     \item Developing \textit{Advanced Raspberry Pi} workshop for students
-    \item \textbf{Teaching} [soldering, python, raspberry pi] to students
+    \item \textbf{Teaching} [ soldering, python, raspberry pi ] to students
 \end{itemize}
 \end{quote}
 \vspace{1mm}
@@ -193,15 +216,18 @@ B.Eng. Computer Engineering \hfill Sep 2017 - May 2021\\
 \header{Awards} 
 \vspace{1mm}
 \begin{tabular}{rll}
-2019	     & Finalist \& top 11/400  & Hack the North (\textit{Canada's biggest hackathon})\\
-2019	     & 3\textsuperscript{rd}/200 \& \textit{Forge Best Technology} Award  & DeltaHacks V (\textit{MLH, McMaster})\\
-2018	     & Wolfram Alpha Sponsor Award  & York U Hacks\\
-2017     & Top 2\% in Engineering Class of 2021 & IMPACT  (\textit{McMaster})\\
+2019 \href{https://devpost.com/software/laserrrr}{\ExternalLink} 	     
+& Finalist \& top 11/400  & Hack the North (\textit{Canada's biggest hackathon})\\
+
+2019 \href{https://devpost.com/software/project-sdc6n523t48u}{\ExternalLink}
+& 3\textsuperscript{rd}/200 \& \textit{Forge Technology} Award  & DeltaHacks V (\textit{MLH, McMaster})\\
+
+2018 \href{https://github.com/benji1123/Eye_Actuation}{\ExternalLink}	     
+& Wolfram Alpha Sponsor Award  & York U Hacks\\
+
+2017 \href{https://www.eng.mcmaster.ca/programs/impact#Projects-}{\ExternalLink}     
+& Top 2\% in Engineering Class of 2021 & IMPACT  (\textit{McMaster})\\
 \end{tabular}
 \sectionsep
-
-
-
-
 \ 
 \end{document}
